@@ -36,6 +36,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'styles': resolve('src/assets/styles'),
     }
   },
   module: {
@@ -75,7 +76,7 @@ module.exports = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       }
-    ]
+   ]
   },
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
