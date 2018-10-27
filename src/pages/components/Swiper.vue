@@ -22,7 +22,9 @@ export default {
         // 状态点
         pagination: '.swiper-pagination',
         // 循环轮播
-        loop: true
+        loop: true,
+        // 自动轮播（间隔3秒）
+        autoplay: 3000
       },
       // 数组导向控制轮播页面数量
       swiperList: [{
