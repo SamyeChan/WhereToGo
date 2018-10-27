@@ -17,6 +17,9 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    list: Array
+  },
   data () {
     return {
       swiperOption: {
@@ -24,44 +27,44 @@ export default {
         autoplay: false,
         // 状态点
         pagination: '.swiper-pagination'
-      },
-      iconList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png',
-        desc: '景点门票'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-        desc: '游乐场'
-      }, {
-        id: '0004',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-        desc: '游乐场'
-      }, {
-        id: '0005',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png',
-        desc: '景点门票'
-      }, {
-        id: '0006',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-        desc: '游乐场'
-      }, {
-        id: '0007',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png',
-        desc: '景点门票'
-      }, {
-        id: '0008',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-        desc: '游乐场'
-      }, {
-        id: '0009',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png',
-        desc: '景点门票'
-      }, {
-        id: '0010',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-        desc: '游乐场'
-      }]
+      }
+      // iconList: [{
+      //   id: '0001',
+      //   imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png',
+      //   desc: '景点门票'
+      // }, {
+      //   id: '0002',
+      //   imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
+      //   desc: '游乐场'
+      // }, {
+      //   id: '0004',
+      //   imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
+      //   desc: '游乐场'
+      // }, {
+      //   id: '0005',
+      //   imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png',
+      //   desc: '景点门票'
+      // }, {
+      //   id: '0006',
+      //   imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
+      //   desc: '游乐场'
+      // }, {
+      //   id: '0007',
+      //   imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png',
+      //   desc: '景点门票'
+      // }, {
+      //   id: '0008',
+      //   imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
+      //   desc: '游乐场'
+      // }, {
+      //   id: '0009',
+      //   imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png',
+      //   desc: '景点门票'
+      // }, {
+      //   id: '0010',
+      //   imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
+      //   desc: '游乐场'
+      // }]
     }
   },
   computed: {
@@ -70,7 +73,7 @@ export default {
       // 将一个数组声明为常量，该数组本身是可写的
       const pages = []
       // ES6 - 箭头函数（=>）：相当于匿名函数
-      this.iconList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []

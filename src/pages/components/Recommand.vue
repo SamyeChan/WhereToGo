@@ -3,7 +3,7 @@
     <div class="title">热销推荐</div>
     <ul>
       <li class="item"
-         v-for="item of recommandList"
+         v-for="item of list"
          :key="item.id">
         <img class="item-img" :src="item.imgUrl" />
         <div class="item-info">
@@ -19,26 +19,29 @@
 <script>
 export default {
   name: 'HomeRecommand',
-  data () {
-    return {
-      recommandList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1712/df/df5938d61a0f8ab0a3.img.jpg_200x200_2b132f04.jpg',
-        title: '金沙洲天空之眼摩天轮',
-        desc: '吃葡萄不吐葡萄皮不吃葡萄到吐葡萄皮'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1712/df/df5938d61a0f8ab0a3.img.jpg_200x200_2b132f04.jpg',
-        title: '金沙洲天空之眼摩天轮',
-        desc: '吃葡萄不吐葡萄皮不吃葡萄到吐葡萄皮'
-      }, {
-        id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1712/df/df5938d61a0f8ab0a3.img.jpg_200x200_2b132f04.jpg',
-        title: '金沙洲天空之眼摩天轮',
-        desc: '吃葡萄不吐葡萄皮不吃葡萄到吐葡萄皮'
-      }]
-    }
+  props: {
+    list: Array
   }
+  // data () {
+  //   return {
+  //     recommandList: [{
+  //       id: '0001',
+  //       imgUrl: 'http://img1.qunarzz.com/sight/p0/1712/df/df5938d61a0f8ab0a3.img.jpg_200x200_2b132f04.jpg',
+  //       title: '金沙洲天空之眼摩天轮',
+  //       desc: '吃葡萄不吐葡萄皮不吃葡萄到吐葡萄皮'
+  //     }, {
+  //       id: '0002',
+  //       imgUrl: 'http://img1.qunarzz.com/sight/p0/1712/df/df5938d61a0f8ab0a3.img.jpg_200x200_2b132f04.jpg',
+  //       title: '金沙洲天空之眼摩天轮',
+  //       desc: '吃葡萄不吐葡萄皮不吃葡萄到吐葡萄皮'
+  //     }, {
+  //       id: '0003',
+  //       imgUrl: 'http://img1.qunarzz.com/sight/p0/1712/df/df5938d61a0f8ab0a3.img.jpg_200x200_2b132f04.jpg',
+  //       title: '金沙洲天空之眼摩天轮',
+  //       desc: '吃葡萄不吐葡萄皮不吃葡萄到吐葡萄皮'
+  //     }]
+  //  }
+  // }
 }
 </script>
 

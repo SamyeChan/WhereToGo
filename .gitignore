@@ -4,6 +4,8 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+# 将文件夹路径加于此处，那么就不会被 git 到 github 上，也不会被提交到本地仓
+static/cc
 
 # Editor directories and files
 .idea

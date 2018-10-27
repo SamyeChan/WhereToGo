@@ -10,7 +10,16 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/api': {
+        // 资源在如下服务器获取
+        target: 'http://localhost:8080',
+        // 但当遇到以 api 开头但路径就转发到 /static/cc 文件夹
+        pathRewrite: {
+          '^/api': '/static/cc'
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
