@@ -23,7 +23,7 @@ export default {
     HomeSwiper,
     HomeIcons,
     HomeRecommand,
-    HomeWeekend
+    HomeWeekendP
   }
 }
 </script>
