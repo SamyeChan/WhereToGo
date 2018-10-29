@@ -14,6 +14,7 @@ export default new Router({
     name: 'Home',
     component: Home
   }, {
+    // 设置一个新路由项
     path: '/city',
     name: 'City',
     component: City
