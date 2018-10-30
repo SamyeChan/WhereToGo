@@ -13,62 +13,20 @@
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">重庆</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">韶关</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">深圳</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">上海</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">西安</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">成都</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">兰州</div>
+          <div class="button-wrapper" v-for="item of list" :key="item.id">
+            <div class="button">{{ item.name }}</div>
           </div>
         </div>
       </div>
-      <div class="area">
-        <div class="title border-topbottom">A</div>
-        <div class="item-list">
-          <div class="item border-bottom">阿拉尔</div>
-          <div class="item border-bottom">阿拉尔</div>
-          <div class="item border-bottom">阿拉尔</div>
-          <div class="item border-bottom">阿拉尔</div>
-          <div class="item border-bottom">阿拉尔</div>
-        </div>
-        <div class="title border-topbottom">B</div>
-        <div class="item-list">
-          <div class="item border-bottom">柏林</div>
-          <div class="item border-bottom">柏林</div>
-          <div class="item border-bottom">柏林</div>
-          <div class="item border-bottom">柏林</div>
-          <div class="item border-bottom">柏林</div>
-          <div class="item border-bottom">柏林</div>
-          <div class="item border-bottom">柏林</div>
-          <div class="item border-bottom">柏林</div>
-        </div>
-        <div class="title border-topbottom">C</div>
-        <div class="item-list">
-          <div class="item border-bottom">柏林</div>
-          <div class="item border-bottom">柏林</div>
-          <div class="item border-bottom">柏林</div>
-          <div class="item border-bottom">柏林</div>
-          <div class="item border-bottom">柏林</div>
-          <div class="item border-bottom">柏林</div>
-          <div class="item border-bottom">柏林</div>
-          <div class="item border-bottom">柏林</div>
+      <div class="area"
+           v-for="(item, key) of all"
+           :key="key"
+           :ref="key">
+        <div class="title border-topbottom">{{ key }}</div>
+        <div class="item-list"
+             v-for="city of item"
+                   :key="city.id">
+          <div class="item border-bottom">{{ city.name }}</div>
         </div>
       </div>
     </div>
@@ -80,9 +38,24 @@
 import Bscroll from 'better-scroll'
 export default {
   name: 'CityList',
+  props: {
+    list: Array,
+    all: Object,
+    letter: String
+  },
   mounted () {
     // 创建一个 better-scroll 实例（实例创建时需要接收一个 DOM 元素获取器）
     this.scroll = new Bscroll(this.$refs.wrapper)
+  },
+  // 监听 letter 的变化
+  watch: {
+    letter () {
+      if (this.letter) {
+        const element = this.$refs[this.letter][0]
+        this.scroll.scrollToElement(element)
+      }
+      // console.log(this.letter)
+    }
   }
 }
 </script>

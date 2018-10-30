@@ -41,6 +41,7 @@ export default {
     // 页面挂载好后去获取数据
     getHomeInfo () {
       // 请求的是 api ，但实际获取的是转发路径后的文件夹
+      // 利用 axios 库向如下网址提交，而后返回一个数据 this.getHomeInfoSucc
       axios.get('/api/index.json').then(this.getHomeInfoSucc)
     },
     // 成功获取数据，执行语句（输出）
