@@ -11,7 +11,8 @@
     <ul>
       <li class="sreach-item border-bottom"
           v-for="item of list"
-          :key="item.id">
+          :key="item.id"
+          @click="handleCityClick(item.name)">
       {{ item.name }}
       </li>
       <!-- 无结果页面：当搜索结果数组 list为空时出现（v-show） -->
@@ -43,6 +44,14 @@ export default {
     // 判定无结果页面是否渲染
     hasNoData () {
       return !this.list.length
+    }
+  },
+  methods: {
+    handleCityClick (city) {
+      // 直接通过调用 commit 方法操作 Mutations
+      this.$store.commit('changeCity', city)
+      // vue插件 vue-router：程序化导航
+      this.$router.push('/')
     }
   },
   watch: {

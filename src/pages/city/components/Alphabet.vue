@@ -59,7 +59,6 @@ export default {
         // 首字母 A 距离顶部的高度（offsetTop：拿到一个元素距离搜索框底部、List顶部的高度）
         // （但每一次都需要重新计算着 -- 性能低）
         // const startY = this.$refs['A'][0].offsetTop
-        
         // 问题：在页面滚动的时候，会在短时间内触发多次绑定事件；解决：设置一个流函数
         if (this.timer) {
           clearTimeout(this.timer)

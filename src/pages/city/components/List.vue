@@ -6,14 +6,20 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">珠海</div>
+            <div class="button">
+              <!-- {{ this.$store.state.city }} -->
+              {{ this.currentCity }}
+              </div>
           </div>
         </div>
       </div>
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper" v-for="item of list" :key="item.id">
+          <div class="button-wrapper"
+               v-for="item of list"
+               :key="item.id"
+               @click="handleCityClick(item.name)">
             <div class="button">{{ item.name }}</div>
           </div>
         </div>
@@ -25,7 +31,8 @@
         <div class="title border-topbottom">{{ key }}</div>
         <div class="item-list"
              v-for="city of item"
-                   :key="city.id">
+                   :key="city.id"
+                   @click="handleCityClick(city.name)">
           <div class="item border-bottom">{{ city.name }}</div>
         </div>
       </div>
@@ -36,6 +43,7 @@
 <script>
 // 引入 Better-scroll
 import Bscroll from 'better-scroll'
+import { mapState } from 'vuex'
 export default {
   name: 'CityList',
   props: {
@@ -43,9 +51,22 @@ export default {
     all: Object,
     letter: String
   },
-  mounted () {
-    // 创建一个 better-scroll 实例（实例创建时需要接收一个 DOM 元素获取器）
-    this.scroll = new Bscroll(this.$refs.wrapper)
+  computed: {
+    ...mapState({
+      currentCity: 'city'
+    })
+  },
+  methods: {
+    // handleCityClick (city) {
+    //   // 通过调用 dispatch 方法操作 Actions
+    //   this.$store.dispatch('changeCity', city)
+    // }
+    handleCityClick (city) {
+      // 直接通过调用 commit 方法操作 Mutations
+      this.$store.commit('changeCity', city)
+      // vue插件 vue-router：程序化导航
+      this.$router.push('/')
+    }
   },
   // 监听 letter 的变化
   watch: {
@@ -56,6 +77,11 @@ export default {
       }
       // console.log(this.letter)
     }
+  },
+  // 生命周期函数一般写在最下面
+  mounted () {
+    // 创建一个 better-scroll 实例（实例创建时需要接收一个 DOM 元素获取器）
+    this.scroll = new Bscroll(this.$refs.wrapper)
   }
 }
 </script>

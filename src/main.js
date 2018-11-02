@@ -8,6 +8,8 @@ import router from './router'
 import fastClick from 'fastclick'
 // 引入 vue-awesome-swiper 插件，实现轮播图功能
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+// 引入 vuex仓库：store（只写到文件夹名，可以让vue自己去找）
+import store from './store'
 // 引入 reset.css 使样式统一
 import 'styles/reset.css'
 // 引入 border.css 解决多倍屏中，1像素边框会被显示成多像素问题
@@ -30,6 +32,8 @@ new Vue({
   // router 路由就是根据网址的不同，返回不同的内容给用户（实际 - router: router）
   router,
   // 此处的 APP 是ES6的写法（ES6中，若键、值一致，则可合并），亦即 components: { App: App }
+  // 在创建 根vue实例 时，把 store 传入
+  store,
   components: { App },
   // 将局部组件App渲染出来（App从外部导入，ES6的 import）
   template: '<App/>'

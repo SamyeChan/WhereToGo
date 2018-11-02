@@ -2,7 +2,8 @@
     <!-- template 里只能暴露一个根标签 -->
     <div>
       <!-- 父组件属性传值（将自己的city传递到子组件上） -->
-      <home-header :city="city"></home-header>
+      <!-- <home-header :city="city"></home-header> -->
+      <home-header></home-header>
       <home-swiper :list="swiperList"></home-swiper>
       <home-icons :list="iconList"></home-icons>
       <home-recommand :list="recommandList"></home-recommand>
@@ -30,7 +31,7 @@ export default {
   data () {
     return {
       // 定义一个变量 city 去传值
-      city: '',
+      // city: '',
       swiperList: [],
       iconList: [],
       recommandList: [],
@@ -50,7 +51,7 @@ export default {
       res = res.data
       if (res.ret && res.data) {
         const data = res.data
-        this.city = data.city
+        // this.city = data.city
         this.swiperList = data.swiperList
         this.iconList = data.iconList
         this.recommandList = data.recommandList

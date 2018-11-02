@@ -9,7 +9,10 @@
             输入城市景点/游玩主题</div>
                            <!-- this.city 使用数据 -->
         <router-link to="/city">
-            <div class="header-right">{{ this.city }}
+            <div class="header-right">
+                <!-- {{ this.city }} -->
+                <!-- {{ this.$store.state.city }} -->
+                {{ this.city }}
                 <span class="iconfont arrow-icon">&#xe64a;</span>
             </div>
         </router-link>
@@ -17,13 +20,18 @@
 </template>
 
 <script>
-
+// 导入 vuex 提供的 mapState
+import { mapState } from 'vuex'
 export default {
   name: 'HomeHeader',
-  // props 接收数据
-  props: {
-    city: String
+  computed: {
+    // 将 state 中的 city 映射到 computed 属性上，页面之间使用 this.city 即可（？）
+    ...mapState(['city'])
   }
+  // props 接收数据
+//   props: {
+//     city: String
+//   }
 }
 </script>
 
@@ -53,7 +61,8 @@ export default {
         border-radius: .1rem
         color: #ccc
     .header-right
-        width: 1.24rem
+        min-width: 1.04rem
+        padding: 0 .1rem
         float: right
         text-align: center
         color #ffffff
